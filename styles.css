@@ -4,7 +4,6 @@ PROBABLY SWAP MENU DECORATION SPAN FOR FONTAWESOME
 ICON AND DEAL WITH RESULTING STYLE FALLOUT
  */
 
-
 * {
     box-sizing: border-box;
     border: 1px solid black;
@@ -52,8 +51,8 @@ fieldset {
     background-color: lightgoldenrodyellow;
 }
 
-label {
-    margin-left: 4px;
+fieldset input {
+    margin-right: 4px;
 }
 
 .mainbar {
@@ -85,6 +84,23 @@ label {
 .apifilters {
     display: flex;
     flex-direction: column;
+}
+
+.categories {
+    display: flex;
+    display: none;
+    flex-direction: column;
+    column-count: 2;
+}
+
+.categories label {
+    display: block;
+    display: flex;
+}
+
+.categories input {
+    align-self: flex-start;
+    margin-top: 2px;
 }
 
 .resultsarea {

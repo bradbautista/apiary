@@ -5,12 +5,14 @@
 function showMenu() {
     $('form').on('click', 'button', function() {
         event.preventDefault();
+        // Change the background color of the button
         $(this).toggleClass('active');
-        $(this).next('fieldset').toggle();
+        // Show/hide all fieldsets under the button
+        $(this).nextUntil('button').toggle();
+        // Flip & unfilp the arrow
         $(this).children(':nth-child(2)').toggleClass('menu-icon_inactive');
         $(this).children(':nth-child(2)').toggleClass('menu-icon_active');
-        // console.log($('.menu-icon').css('border-color', 'goldenrod'));
-        console.log($('.menu-icon').css('transform'));
+        
     });
 };
 

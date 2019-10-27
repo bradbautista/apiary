@@ -32,20 +32,81 @@
                 </form>
 
                 <form class="apifilters">
-                    <button aria-expanded="false" class="menu-button" aria-controls="api-categories" id="accordion1id">
+                    <button aria-expanded="false" class="menu-button" aria-controls="api-categories" id="api-categories">
                         <span class="menu-title">Categories</span>
                         <span class="menu-icon menu-icon_inactive"></span>
                     </button>
-                    <fieldset class="categories" id="api-categories">
-                        <input type="checkbox" id="catname"><label for="catname">Category</label>
+                    <fieldset class="categories" id="categories">
+                        <label for="animals"><input type="checkbox" id="animals">Animals</label>
+                        <label for="anime"><input type="checkbox" id="anime">Anime</label>
+                        <label for="anti-malware"><input type="checkbox" id="anti-malware">Anti-Malware</label>
+                        <label for="art-design"><input type="checkbox" id="art-design">Art & Design</label>
+                        <label for="books"><input type="checkbox" id="books">Books</label>
+                        <label for="business"><input type="checkbox" id="business">Business</label>
+                        <label for="calendar"><input type="checkbox" id="calendar">Calendar</label>
+                        <label for="cloud-storage-file-sharing"> <input type="checkbox" id="cloud-storage-file-sharing">Cloud Storage & File Sharing</label>
+                        <label for="continuous-integration"> <input type="checkbox" id="continuous-integration">Continuous Integration</label>
+                        <label for="cryptocurrency"><input type="checkbox" id="cryptocurrency">Cryptocurrency</label>
+                        <label for="currency-exchange"><input type="checkbox" id="currency-exchange">Currency Exchange</label>
+                        <label for="data-validation"><input type="checkbox" id="data-validation">Data Validation</label>
+                        <label for="development"><input type="checkbox" id="development">Development</label>
+                        <label for="dictionaries"><input type="checkbox" id="dictionaries">Dictionaries</label>
+                        <label for="documents-productivity"><input type="checkbox" id="documents-productivity">Documents & Productivity</label>
+                        <label for="environment"><input type="checkbox" id="environment">Environment</label>
+                        <label for="events"><input type="checkbox" id="events">Events</label>
+                        <label for="finance"><input type="checkbox" id="finance">Finance</label>
+                        <label for="food-drink"><input type="checkbox" id="food-drink">Food & Drink</label>
+                        <label for="fraud-prevention"><input type="checkbox" id="fraud-prevention">Fraud Prevention</label>
+                        <label for="games-comics"><input type="checkbox" id="games-comics">Games & Comics</label>
+                        <label for="geocoding"><input type="checkbox" id="geocoding">Geocoding</label>
+                        <label for="government"><input type="checkbox" id="government">Government</label>
+                        <label for="health"><input type="checkbox" id="health">Health</label>
+                        <label for="jobs"><input type="checkbox" id="jobs">Jobs</label>
+                        <label for="machine-learning"><input type="checkbox" id="machine-learning">Machine Learning</label>
+                        <label for="music"><input type="checkbox" id="music">Music</label>
+                        <label for="news"><input type="checkbox" id="news">News</label>
+                        <label for="open-data"><input type="checkbox" id="open-data">Open Data</label>
+                        <label for="open-source-projects"><input type="checkbox" id="open-source-projects">Open-Source Projects</label>
+                        <label for="personality"><input type="checkbox" id="personality">Personality</label>
+                        <label for="photography"><input type="checkbox" id="photography">Photography</label>
+                        <label for="science-math"><input type="checkbox" id="science-math">Science & Math</label>
+                        <label for="security"><input type="checkbox" id="security">Security</label>
+                        <label for="shopping"><input type="checkbox" id="shopping">Shopping</label>
+                        <label for="social"><input type="checkbox" id="social">Social</label>
+                        <label for="sports-fitness"><input type="checkbox" id="sports-fitness">Sports & Fitness</label>
+                        <label for="test-data"><input type="checkbox" id="test-data">Test Data</label>
+                        <label for="text-analysis"><input type="checkbox" id="text-analysis">Text Analysis</label>
+                        <label for="tracking"><input type="checkbox" id="tracking">Tracking</label>
+                        <label for="transportation"><input type="checkbox" id="transportation">Transportation</label>
+                        <label for="url-shorteners"><input type="checkbox" id="url-shorteners">URL Shorteners</label>
+                        <label for="vehicles"><input type="checkbox" id="vehicles">Vehicles</label>
+                        <label for="video"><input type="checkbox" id="video">Video</label>
+                        <label for="weather"><input type="checkbox" id="weather">Weather</label>
                     </fieldset>
+
                     
-                    <button aria-expanded="false" class="accordion-trigger" aria-controls="api-options" id="accordion2id">
+                    <button aria-expanded="false" class="menu-button" aria-controls="api-options" id="api-options">
                         <span class="menu-title">Auth/CORS/HTTPS</span>
                         <span class="menu-icon menu-icon_inactive"></span>
                     </button>
-                    <fieldset class="api-options" id="api-options">
-                        <input type="checkbox" id="authcors"><label for="authcors">Auth/CORS/HTTPS</label>
+                    <fieldset class="auth-options" id="auth-options">
+                        <legend>Auth</legend>
+                        <label for="auth-none"><input type="checkbox" id="auth-none">None</label>
+                        <label for="auth-key"><input type="checkbox" id="auth-key">apiKey</label>
+                        <label for="auth-oauth"><input type="checkbox" id="auth-oauth">OAuth</label>
+                    </fieldset>
+
+                    <fieldset class="cors-options" id="cors-options">
+                            <legend>CORS</legend>
+                            <label for="cors-yes"><input type="checkbox" id="cors-yes">Yes</label>
+                            <label for="cors-no"><input type="checkbox" id="cors-no">No</label>
+                            <label for="cors-unknown"><input type="checkbox" id="cors-unknown">Unknown</label>
+                    </fieldset>
+
+                    <fieldset class="https-options" id="https-options">
+                            <legend>HTTPS</legend>
+                            <label for="https-yes"><input type="checkbox" id="https-yes">Yes</label>
+                            <label for="https-no"><input type="checkbox" id="https-no">No</label>
                     </fieldset>
                 </form>
 
