@@ -2,6 +2,8 @@
 
 PROBABLY SWAP MENU DECORATION SPAN FOR FONTAWESOME
 ICON AND DEAL WITH RESULTING STYLE FALLOUT
+
+CHANGE COLUMN NUMBER ON TABLET/DESKTOP
  */
 
 * {
@@ -29,6 +31,11 @@ h1 {
     color: black;
 }
 
+h3 {
+    font-size: 27px;
+    margin: 0;
+}
+
 aside {
     font-style: italic;
     align-self: center;
@@ -46,13 +53,21 @@ button {
 
 fieldset {
     margin: 0;
-    display: block;
+    display: flex;
     display: none;
     background-color: lightgoldenrodyellow;
 }
 
 fieldset input {
     margin-right: 4px;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
 }
 
 .mainbar {
@@ -63,11 +78,10 @@ fieldset input {
 
 .queryarea {
     width: 100%;
-    height: 550px;
     background-color: goldenrod;
 }
 
-.apisearch {
+/* .apisearch {
     margin-left: auto;
     margin-right: auto;
     width: 80%;
@@ -79,9 +93,9 @@ fieldset input {
     border-radius: 18px;
     height: 40px;
     padding-left: 15px;
-}
+} */
 
-.apifilters {
+.api-filters {
     display: flex;
     flex-direction: column;
 }
@@ -90,11 +104,13 @@ fieldset input {
     display: flex;
     display: none;
     flex-direction: column;
-    column-count: 2;
+}
+
+.chrome-wrapper {
+    columns: 2;
 }
 
 .categories label {
-    display: block;
     display: flex;
 }
 
@@ -103,8 +119,30 @@ fieldset input {
     margin-top: 2px;
 }
 
-.resultsarea {
+.auth-options label, .cors-options label, .https-options label {
+    margin-right: 10px;
+}
+
+.results-area {
     width: 100%;
+}
+
+.results-list {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.result-options {
+    display: flex;
+}
+
+.result-option {
+    margin-right: 20px;
+}
+
+.option-name {
+    font-weight: 700;
 }
 
 .hex {

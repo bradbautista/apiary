@@ -7,6 +7,7 @@
     <link href="normalize.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,400i,500,700,900&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b7241d4776.js" crossorigin="anonymous"></script>
     <title>Apiary</title>
 </head>
 
@@ -27,16 +28,18 @@
                     <aside>The place to bee for APIs</aside>
                 </header>
 
-                <form class="apisearch">
+                <!-- <form class="apisearch">
                         <input type="search" id="apisearch" placeholder="Search APIs">
-                </form>
+                </form> -->
 
-                <form class="apifilters">
+                <form class="api-filters">
                     <button aria-expanded="false" class="menu-button" aria-controls="api-categories" id="api-categories">
                         <span class="menu-title">Categories</span>
                         <span class="menu-icon menu-icon_inactive"></span>
                     </button>
                     <fieldset class="categories" id="categories">
+                        <!-- CHROME NOT RESPECTING COLUMNS/COLUMN-COUNT ON FIELDSET, SO A WRAPPER IS NECESSARY TO ACHIEVE PROPER BEHAVIOR ACROSS BROWSERS -->
+                        <div class="chrome-wrapper">
                         <label for="animals"><input type="checkbox" id="animals">Animals</label>
                         <label for="anime"><input type="checkbox" id="anime">Anime</label>
                         <label for="anti-malware"><input type="checkbox" id="anti-malware">Anti-Malware</label>
@@ -82,6 +85,7 @@
                         <label for="vehicles"><input type="checkbox" id="vehicles">Vehicles</label>
                         <label for="video"><input type="checkbox" id="video">Video</label>
                         <label for="weather"><input type="checkbox" id="weather">Weather</label>
+                        </div>
                     </fieldset>
 
                     
@@ -108,16 +112,37 @@
                             <label for="https-yes"><input type="checkbox" id="https-yes">Yes</label>
                             <label for="https-no"><input type="checkbox" id="https-no">No</label>
                     </fieldset>
+
                 </form>
 
-                <p>This is a hexagon, they're cool:</p>
-
-                <span class="hex">lol nah nm gotta try it the css way</span>
+                <!-- <span class="hex">Unicode hexagon a no-go, going to have to try css</span> -->
 
             </section>
 
-            <section class="resultsarea"> 
+            <section class="results-area"> 
+                <ul class="results-list">
+                
+                    <li class="result">
+                    <h3><a href="https://www.apilink.com/">API name</a></h3>
+                    <p class="chrometest">API description API description API description API description API description API description API description API description</p>
+                        <ul class="result-options">
+                            <li class="result-option">
+                                <span class="option-name">CORS</span> 
+                                <span class="option-value">Unknown</span>
+                            </li>
+                            <li class="result-option">
+                                <span class="option-name">Auth</span> 
+                                <span class="option-value">apiKey</span>
+                            </li>
+                            <li class="result-option">
+                                <span class="option-name">HTTPS</span>
+                                <span class="option-value">Yes</span></li>
+                        </ul>
+                    </li>
+                
+                </ul>
 
+                <p id="js-error-message"></p>
 
             </section>
 
