@@ -8,7 +8,7 @@ CHANGE COLUMN NUMBER ON TABLET/DESKTOP
 
 * {
     box-sizing: border-box;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-family: Roboto;
 }
 
@@ -143,6 +143,10 @@ li {
 
 .option-name {
     font-weight: 700;
+}
+
+.nomatches {
+    font-style: italic;
 }
 
 .hex {

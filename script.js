@@ -1,5 +1,8 @@
 'use strict';
 
+// A container for our raw JSON 
+let rawData = [];
+
 // Enable menu behavior
 function showMenu() {
     $('form').on('click', 'button', function() {
@@ -16,7 +19,7 @@ function showMenu() {
 };
 
 // Retrieve and return the data, then pass it to the 
-// displayResults function so we can manipulate it
+// normalizeData function so we can neaten it up
 function getData() {
 
     const endpoint = 'https://api.publicapis.org/entries'
@@ -28,118 +31,166 @@ function getData() {
             }
             throw new Error(response.statusText);
         })
-        .then(responseJson => displayResults(responseJson))
+        .then(responseJson => normalizeData(responseJson))
         .catch(err => {
             $('#js-error-message').text(`Something went wrong: ${err.message}`);
     });
-}
+};
 
-// function displayResults(responseJson) {
+function normalizeData(responseJson) {
 
-    // const selectedStates = $('input[type=checkbox]:checked').map(function() {
-    //      return this.id;
-    //      }).get().join(',');
-    //      getParks(selectedStates, maxResults);
-    //      // Clear the inputs and disable the submit button
-    //      $('input:checkbox').prop('checked', false);
-    //      $('input[type=submit').prop('disabled', true);
-    //     });
-    // }
-  
-    // iterate over the response
-    // for (let i = 0; i < responseJson.data.length ; i++){
-  
-    //     if (responseJson.data[i].images.length === 0) {
-    //     $('#results-list').append(
-    //       `<li><h3><a href="${responseJson.data[i].url}">${responseJson.data[i].name}</a></h3>
-    //       <p class="address">${responseJson.data[i].addresses[0].line1}, ${responseJson.data[i].addresses[0].city}, ${responseJson.data[i].addresses[0].stateCode} ${responseJson.data[i].addresses[0].postalCode}</p>
-    //       <p>${responseJson.data[i].description}</p>
-    //       </li>
-    //       <hr>`);
-    //     } else {
-    //     $('#results-list').append(
-    //       `<li><h3><a href="${responseJson.data[i].url}" target="_blank">${responseJson.data[i].name}</a></h3>
-    //       <p class="address">${responseJson.data[i].addresses[0].line1}, ${responseJson.data[i].addresses[0].city}, ${responseJson.data[i].addresses[0].stateCode} ${responseJson.data[i].addresses[0].postalCode}</p>
-    //       <p>${responseJson.data[i].description}</p>
-    //       <img src="${responseJson.data[i].images[0].url}">
-    //       </li>
-    //       <hr>`);
-    //     };
-  
+    // Push our responseJson objects into our repository
+    rawData.push(responseJson.entries);
 
-    // };
-// };
+    // Create a new array of formatted data
+    const data = rawData[0].map(function(obj) {
 
-function displayResults(responseJson) {
+        const tempObj = {};
 
-    console.log(responseJson);
-    console.log(responseJson.entries.length);
+        tempObj.API = obj.API;
+        tempObj.Description = obj.Description;
+        // Prefer 'None' to empty string for APIs that
+        // don't require authorization
+        tempObj.Auth = (obj.Auth === '' ? 'None' : obj.Auth);
+        // Prefer 'Yes'/'No' to true/false for HTTPS values
+        tempObj.HTTPS = (obj.HTTPS === true ? 'Yes' : 'No');
+        // Uppercase CORS values
+        tempObj.Cors = obj.Cors[0].toUpperCase() + obj.Cors.slice(1);
+        tempObj.Link = obj.Link;
+        tempObj.Category = obj.Category;
+
+        return tempObj;
+
+        }
+    );
+
+    console.log(data);
+
+    // Pass our data to displayResults
+    displayResults(data);
+
+};
+
+function getCategories() {
+ 
+    return $('.categories')
+    .find('input[type=checkbox]:checked')
+    .map(function() {
+        return ($(this).parent().text());
+    })
+    .get();
+
+};
+
+function getAuthOptions() {
+    
+    return $('.auth-options')
+    .find('input[type=checkbox]:checked')
+    .map(function() {
+        return ($(this).parent().text());
+    })
+    .get();
+
+};
+
+function getCorsOptions() {
+
+    return $('.cors-options')
+    .find('input[type=checkbox]:checked')
+    .map(function() {
+        return ($(this).parent().text());
+    })
+    .get();
+
+};
+
+function getHttpsOptions() {
+    
+    return $('.https-options')
+    .find('input[type=checkbox]:checked')
+    .map(function() {
+        return ($(this).parent().text());
+    })
+    .get();
+
+};
+
+function generateResults(data, i) {
+    $('.results-list').append(
+        `<li class="result">
+            <h3><a href="${data[i].Link}" target="_blank">${data[i].API}</a></h3>
+            <p class="description">${data[i].Description}.</p>
+            <ul class="result-options">
+                <li class="result-option">
+                    <span class="option-name">CORS</span> 
+                    <span class="option-value">${data[i].Cors}</span>
+                </li>
+                <li class="result-option">
+                    <span class="option-name">Auth</span> 
+                    <span class="option-value">${data[i].Auth}</span>
+                </li>
+                <li class="result-option">
+                    <span class="option-name">HTTPS</span>
+                    <span class="option-value">${data[i].HTTPS}</span></li>
+            </ul>
+        </li>`
+    )
+};
+
+function dontGiveUp() {
+    $('.results-list').append(
+        `<li class="nomatches">No matches for that combination of options. :( Try different options!</li>`
+    )
+};
+
+
+function displayResults(data) {
+
     $('#js-error-message').empty();
 
-    // Listen for a click on the .categories fieldset
-    $('.categories').on('click', 'input', (function(event) {
-    console.log('Click recorded.')
-    console.log($(this).prop('checked'))
+    // If there is a click on any input on the form
+    $('.api-filters').on('click', 'input', (function(event) {
     
-    // When it comes, check if the checkbox that has been clicked on 
-    // is being checked or unchecked. If it's checked,
-    if ($(this).prop('checked') === true) {
-        console.log('Checked.');
-        console.log($(this).parent().text());
+        // Get the arrayed values of the selected boxes and assign them to variables
+        let categorySelections = getCategories();
+        let authOptions = getAuthOptions();
+        let corsOptions = getCorsOptions();
+        let httpsOptions = getHttpsOptions();
+    
+        // Empty the results list
+        $('.results-list').empty();
 
-        // Loop through the responseJson 
-        for (let i = 0; i < responseJson.entries.length; i++){
-            
-            // And if the text of the label of the checkbox that has been
-            // clicked on is equal to the text of the category key in the
-            // JSON object,
-            if ($(this).parent().text() === responseJson.entries[i].Category) {
-                console.log($(this).parent().text());
-
-                // Generate an <li>, give it a class of i, and append it 
-                // to <ul class="results-list">
-                $('.results-list').append(
-                    `<li class="result ${i}">
-                        <h3><a href="${responseJson.entries[i].Link}" target="_blank">${responseJson.entries[i].API}</a></h3>
-                        <p class="description">${responseJson.entries[i].Description}.</p>
-                        <ul class="result-options">
-                            <li class="result-option">
-                                <span class="option-name">CORS</span> 
-                                <span class="option-value">${responseJson.entries[i].Cors}</span>
-                            </li>
-                            <li class="result-option">
-                                <span class="option-name">Auth</span> 
-                                <span class="option-value">${responseJson.entries[i].Auth}</span>
-                            </li>
-                            <li class="result-option">
-                                <span class="option-name">HTTPS</span>
-                                <span class="option-value">${responseJson.entries[i].HTTPS}</span></li>
-                        </ul>
-                    </li>`
-
-                )
-            }
-        }
-         
-    // If it's unchecked,
-    } else if ($(this).prop('checked') === false) {
-        console.log('Unchecked.');
-        console.log($(this).parent().text());
-
-        // Loop through the responseJson
-        for (let i = 0; i < responseJson.entries.length; i++) {
-
-            // And remove anything classed i for which the text of the label of the // checkbox that has been clicked on is equal to the text of the
-            // category key in the JSON object
-            if ($(this).parent().text() === responseJson.entries[i].Category) {
-                $(`.${i}`).remove();
-            }
-        }
+        // Loop through the data 
+        for (let i = 0; i < data.length; i++){
         
-    }
+            // And if 
+            if (
+            
+            // There are results for our combination of categories
+            (categorySelections.includes(data[i].Category) || categorySelections.length === 0) 
+            // and/or auth options
+            && (authOptions.includes(data[i].Auth) || authOptions.length === 0)
+            // and/or CORS options
+            && (corsOptions.includes(data[i].Cors) || corsOptions.length === 0)
+            // and/or HTTPS options
+            && (httpsOptions.includes(data[i].HTTPS) || httpsOptions.length === 0)
+            
+            ) {
+                // Generate an <li> and append it to <ul class="results-list">
+                generateResults(data, i);
+                console.log($('.results-list li').children().length)                    
+            }; 
+        };
+
+        // If you've done that and there are no results
+        if ( $('.results-list li').children().length === 0 ) {
+            dontGiveUp();
+        };
 
     }));
-}
+};
+
+
 
 // Clear the checkboxes on page reload
 function clearInputs() {
@@ -148,5 +199,4 @@ function clearInputs() {
 
 $(getData);
 $(showMenu);
-// $(listenForClick);
 $(clearInputs);
