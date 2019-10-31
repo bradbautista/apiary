@@ -150,53 +150,67 @@ function displayResults(data) {
 
     // If there is a click on any input on the form
     $('.api-filters').on('click', 'input', (function(event) {
-    
-        // Get the arrayed values of the selected boxes and assign them to variables
-        let categorySelections = getCategories();
-        let authOptions = getAuthOptions();
-        let corsOptions = getCorsOptions();
-        let httpsOptions = getHttpsOptions();
-    
-        // Empty the results list
-        $('.results-list').empty();
 
-        // Loop through the data 
-        for (let i = 0; i < data.length; i++){
+        // First check to see how many checkboxes are checked, because if
+        // that number is zero, it probably means someone checked checkboxes
+        // and unchecked them all. Due to the sorting rules, this will 
+        // return all APIs, so instead display a blank results area
+
+        if (document.querySelectorAll('input:checked').length === 0) {
+            $('.results-list').empty();
+        } else {
+    
+            // Get the arrayed values of the selected boxes and assign them to variables
+            let categorySelections = getCategories();
+            let authOptions = getAuthOptions();
+            let corsOptions = getCorsOptions();
+            let httpsOptions = getHttpsOptions();
         
-            // And if 
-            if (
-            
-            // There are results for our combination of categories
-            (categorySelections.includes(data[i].Category) || categorySelections.length === 0) 
-            // and/or auth options
-            && (authOptions.includes(data[i].Auth) || authOptions.length === 0)
-            // and/or CORS options
-            && (corsOptions.includes(data[i].Cors) || corsOptions.length === 0)
-            // and/or HTTPS options
-            && (httpsOptions.includes(data[i].HTTPS) || httpsOptions.length === 0)
-            
-            ) {
-                // Generate an <li> and append it to <ul class="results-list">
-                generateResults(data, i);
-                console.log($('.results-list li').children().length)                    
-            }; 
-        };
+            // Empty the results list
+            $('.results-list').empty();
 
-        // If you've done that and there are no results
-        if ( $('.results-list li').children().length === 0 ) {
-            dontGiveUp();
+            // Loop through the data 
+            for (let i = 0; i < data.length; i++){
+            
+                // And if 
+                if (
+                
+                // There are results for our combination of categories
+                (categorySelections.includes(data[i].Category) || categorySelections.length === 0) 
+                // and/or auth options
+                && (authOptions.includes(data[i].Auth) || authOptions.length === 0)
+                // and/or CORS options
+                && (corsOptions.includes(data[i].Cors) || corsOptions.length === 0)
+                // and/or HTTPS options
+                && (httpsOptions.includes(data[i].HTTPS) || httpsOptions.length === 0)
+                
+                ) {
+                    // Generate an <li> and append it to <ul class="results-list">
+                    generateResults(data, i);
+                                        
+                }; 
+            };
+
+            // If you've done that and there are no results
+            if ( $('.results-list li').children().length === 0 ) {
+                // Prompt the user to try a different combination
+                dontGiveUp();
+            };
         };
 
     }));
 };
 
 
-
-// Clear the checkboxes on page reload
+// Clear checkboxes on page reload
 function clearInputs() {
     $('input:checkbox').prop('checked', false);
 }
 
-$(getData);
-$(showMenu);
-$(clearInputs);
+function exploreAPIs() {
+    getData();
+    showMenu();
+    clearInputs();    
+}
+
+$(exploreAPIs);
