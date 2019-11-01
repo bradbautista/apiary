@@ -8,7 +8,6 @@ CHANGE COLUMN NUMBER ON TABLET/DESKTOP
 
 * {
     box-sizing: border-box;
-    /* border: 1px solid black; */
     font-family: Roboto;
 }
 
@@ -222,13 +221,6 @@ li {
 
 /* DESKTOP */
 @media screen and (min-width: 1024px) {
-
-    h1 {
-        font-size: 120px;
-        margin: 0;
-        text-align: center;
-        color: black;
-    }
 
     .mainbar {
         width: 60%;
