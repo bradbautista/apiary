@@ -28,10 +28,6 @@
                     <aside>Sort & filter nearly 700 APIs</aside>
                 </header>
 
-                <!-- <form class="apisearch">
-                        <input type="search" id="apisearch" placeholder="Search APIs">
-                </form> -->
-
                 <form class="api-filters">
                     <button aria-expanded="false" class="menu-button" aria-controls="api-categories" id="api-categories">
                         <span class="menu-title">Categories</span>
@@ -90,29 +86,30 @@
 
                     
                     <button aria-expanded="false" class="menu-button" aria-controls="api-options" id="api-options">
-                        <span class="menu-title">Auth/CORS/HTTPS</span>
+                        <span class="menu-title">API options</span>
                         <span class="menu-icon menu-icon_inactive"></span>
                     </button>
-                    <fieldset class="auth-options" id="auth-options">
-                        <legend>Auth</legend>
-                        <label for="auth-none"><input type="checkbox" id="auth-none">None</label>
-                        <label for="auth-key"><input type="checkbox" id="auth-key">apiKey</label>
-                        <label for="auth-oauth"><input type="checkbox" id="auth-oauth">OAuth</label>
-                    </fieldset>
+                    <div class="options-flex-wrapper">
+                        <fieldset class="auth-options" id="auth-options">
+                            <legend>Auth</legend>
+                            <label for="auth-none"><input type="checkbox" id="auth-none">None</label>
+                            <label for="auth-key"><input type="checkbox" id="auth-key">apiKey</label>
+                            <label for="auth-oauth"><input type="checkbox" id="auth-oauth">OAuth</label>
+                        </fieldset>
 
-                    <fieldset class="cors-options" id="cors-options">
-                            <legend>CORS</legend>
-                            <label for="cors-yes"><input type="checkbox" id="cors-yes">Yes</label>
-                            <label for="cors-no"><input type="checkbox" id="cors-no">No</label>
-                            <label for="cors-unknown"><input type="checkbox" id="cors-unknown">Unknown</label>
-                    </fieldset>
+                        <fieldset class="cors-options" id="cors-options">
+                                <legend>CORS</legend>
+                                <label for="cors-yes"><input type="checkbox" id="cors-yes">Yes</label>
+                                <label for="cors-no"><input type="checkbox" id="cors-no">No</label>
+                                <label for="cors-unknown"><input type="checkbox" id="cors-unknown">Unknown</label>
+                        </fieldset>
 
-                    <fieldset class="https-options" id="https-options">
-                            <legend>HTTPS</legend>
-                            <label for="https-yes"><input type="checkbox" id="https-yes">Yes</label>
-                            <label for="https-no"><input type="checkbox" id="https-no">No</label>
-                    </fieldset>
-
+                        <fieldset class="https-options" id="https-options">
+                                <legend>HTTPS</legend>
+                                <label for="https-yes"><input type="checkbox" id="https-yes">Yes</label>
+                                <label for="https-no"><input type="checkbox" id="https-no">No</label>
+                        </fieldset>
+                    </div>
                 </form>
 
                 <!-- <span class="hex">Unicode hexagon a no-go, going to have to try css</span> -->

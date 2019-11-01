@@ -20,42 +20,47 @@ html {
 header {
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 h1 {
-    font-size: 60px;
+    font-size: 100px;
+    font-weight: 200;
     margin: 0;
+    margin-top: 20px;
     text-align: center;
-    color: black;
-}
+    color: goldenrod;
 
-h3 {
-    font-size: 27px;
-    margin: 0;
 }
 
 aside {
+    color: black;
+    font-weight: 200;
+    font-size: 22px;
     font-style: italic;
     align-self: center;
-    margin-top: 5px;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 button {
     display: flex;
-    background-color: goldenrod;
+    background-color: lightgoldenrodyellow;
     padding-left: 10%;
     padding-right: 10%;
     padding-top: 5%;
     padding-bottom: 5%;
+    border: 2px solid goldenrod;
+    margin-top: 10px;
 }
 
 fieldset {
     margin: 0;
+    margin-top: 10px;
     display: flex;
     display: none;
     background-color: lightgoldenrodyellow;
+    border: none;
 }
 
 fieldset input {
@@ -78,22 +83,8 @@ li {
 
 .queryarea {
     width: 100%;
-    background-color: goldenrod;
+    background-color: lightgoldenrodyellow;
 }
-
-/* .apisearch {
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-    margin-bottom: 10px;
-}
-
-.apisearch input {
-    width: 100%;
-    border-radius: 18px;
-    height: 40px;
-    padding-left: 15px;
-} */
 
 .api-filters {
     display: flex;
@@ -119,18 +110,35 @@ li {
     margin-top: 2px;
 }
 
+.options-flex-wrapper {
+    display: none;
+}
+
+.options-flex-wrapper fieldset legend {
+    font-weight: 500;
+}
+
+.auth-options, .cors-options, .https-options {
+    display: inline-block;
+}
+
 .auth-options label, .cors-options label, .https-options label {
     margin-right: 10px;
 }
 
 .results-area {
     width: 100%;
+    padding-top: 20px;
 }
 
 .results-list {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.result {
+    margin-bottom: 30px;
 }
 
 .result-options {
@@ -171,7 +179,7 @@ li {
 .menu-icon_inactive {
     border-width: 0 2px 2px 0;
     border-style: solid;
-    border-color: lightgoldenrodyellow;
+    border-color: goldenrod;
     transform: translateY(-60%) rotate(45deg);
 }
 
@@ -189,14 +197,7 @@ li {
 .menu-button:hover .menu-icon_inactive {
     border-color: goldenrod;
 }
-  
-  /* Style the accordion panel. Note: hidden by default */
-  .panel {
-    padding: 0 18px;
-    background-color: white;
-    display: none;
-    overflow: hidden;
-  }
+
 
 /* MEDIA QUERIES */
 
@@ -204,7 +205,18 @@ li {
 /* TABLET */
 @media screen and (min-width: 720px) {
 
+    .chrome-wrapper {
+        columns: 3;
+    }
 
+    .options-flex-wrapper {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .options-flex-wrapper fieldset {
+        margin-right: 20px;
+    }
 
 }
 
@@ -224,16 +236,8 @@ li {
         margin-right: auto;
     }
 
-    .apisearch {
-        margin-left: auto;
-        margin-right: auto;
-        width: 40%;
-    }
-    
-    .apisearch input {
-        width: 100%;
-        border-radius: 20px;
-        height: 50px;
+    .chrome-wrapper {
+        columns: 4;
     }
 
 }
