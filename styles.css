@@ -456,7 +456,8 @@ input:checked ~ .checkmark:after {
 
     .options-flex-wrapper {
         margin-top: -40px;
-        padding-top: 60px;        
+        padding-top: 60px;
+        columns: 6;      
     }
 
     .sidebar-area {
