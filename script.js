@@ -64,12 +64,17 @@ function normalizeData(responseJson) {
         }
     );
 
-    console.log(data);
+    console.log(data.length);
 
-    // Pass our data to displayResults
+    // Pass our data to displayResults and updateCount
     displayResults(data);
+    updateCount(data);
 
 };
+
+function updateCount(data) {
+    $('.current-count').text(data.length);
+}
 
 function getCategories() {
  
@@ -118,24 +123,28 @@ function getHttpsOptions() {
 function generateResults(data, i) {
     $('.results-list').append(
         `<li class="result">
-            <h3><a href="${data[i].Link}" target="_blank">${data[i].API}</a></h3>
+            <h2><a href="${data[i].Link}" target="_blank">${data[i].API}</a></h2>
             <p class="description">${data[i].Description}.</p>
             <ul class="result-options">
                 <li class="result-option">
-                    <span class="option-name">CORS</span> 
+                    <span class="option-name">CORS:</span> 
                     <span class="option-value">${data[i].Cors}</span>
                 </li>
                 <li class="result-option">
-                    <span class="option-name">Auth</span> 
+                    <span class="option-name">Auth:</span> 
                     <span class="option-value">${data[i].Auth}</span>
                 </li>
                 <li class="result-option">
-                    <span class="option-name">HTTPS</span>
+                    <span class="option-name">HTTPS:</span>
                     <span class="option-value">${data[i].HTTPS}</span></li>
             </ul>
-        </li>`
+        </li>
+        <hr>`
     )
 };
+
+// <button class="fav"><i class="fas fa-heart"></i> Add to favorites</button>
+
 
 function dontGiveUp() {
     $('.results-list').append(

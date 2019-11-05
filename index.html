@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="normalize.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,400i,500,700,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,300i,400,400i,500,700,900&display=swap" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b7241d4776.js" crossorigin="anonymous"></script>
     <title>Apiary</title>
@@ -25,7 +25,7 @@
 
                 <header>
                     <h1>Apiary</h1>
-                    <aside>Sort & filter nearly 700 APIs</aside>
+                    <aside>Quickly sort & filter <span class="current-count">nearly 700</span> APIs</aside>
                 </header>
 
                 <form class="api-filters">
@@ -36,51 +36,51 @@
                     <fieldset class="categories" id="categories">
                         <!-- CHROME NOT RESPECTING COLUMNS/COLUMN-COUNT ON FIELDSET, SO A WRAPPER IS NECESSARY TO ACHIEVE PROPER BEHAVIOR ACROSS BROWSERS -->
                         <div class="chrome-wrapper">
-                        <label for="animals"><input type="checkbox" id="animals">Animals</label>
-                        <label for="anime"><input type="checkbox" id="anime">Anime</label>
-                        <label for="anti-malware"><input type="checkbox" id="anti-malware">Anti-Malware</label>
-                        <label for="art-design"><input type="checkbox" id="art-design">Art & Design</label>
-                        <label for="books"><input type="checkbox" id="books">Books</label>
-                        <label for="business"><input type="checkbox" id="business">Business</label>
-                        <label for="calendar"><input type="checkbox" id="calendar">Calendar</label>
-                        <label for="cloud-storage-file-sharing"><input type="checkbox" id="cloud-storage-file-sharing">Cloud Storage & File Sharing</label>
-                        <label for="continuous-integration"><input type="checkbox" id="continuous-integration">Continuous Integration</label>
-                        <label for="cryptocurrency"><input type="checkbox" id="cryptocurrency">Cryptocurrency</label>
-                        <label for="currency-exchange"><input type="checkbox" id="currency-exchange">Currency Exchange</label>
-                        <label for="data-validation"><input type="checkbox" id="data-validation">Data Validation</label>
-                        <label for="development"><input type="checkbox" id="development">Development</label>
-                        <label for="dictionaries"><input type="checkbox" id="dictionaries">Dictionaries</label>
-                        <label for="documents-productivity"><input type="checkbox" id="documents-productivity">Documents & Productivity</label>
-                        <label for="environment"><input type="checkbox" id="environment">Environment</label>
-                        <label for="events"><input type="checkbox" id="events">Events</label>
-                        <label for="finance"><input type="checkbox" id="finance">Finance</label>
-                        <label for="food-drink"><input type="checkbox" id="food-drink">Food & Drink</label>
-                        <label for="fraud-prevention"><input type="checkbox" id="fraud-prevention">Fraud Prevention</label>
-                        <label for="games-comics"><input type="checkbox" id="games-comics">Games & Comics</label>
-                        <label for="geocoding"><input type="checkbox" id="geocoding">Geocoding</label>
-                        <label for="government"><input type="checkbox" id="government">Government</label>
-                        <label for="health"><input type="checkbox" id="health">Health</label>
-                        <label for="jobs"><input type="checkbox" id="jobs">Jobs</label>
-                        <label for="machine-learning"><input type="checkbox" id="machine-learning">Machine Learning</label>
-                        <label for="music"><input type="checkbox" id="music">Music</label>
-                        <label for="news"><input type="checkbox" id="news">News</label>
-                        <label for="open-data"><input type="checkbox" id="open-data">Open Data</label>
-                        <label for="open-source-projects"><input type="checkbox" id="open-source-projects">Open Source Projects</label>
-                        <label for="personality"><input type="checkbox" id="personality">Personality</label>
-                        <label for="photography"><input type="checkbox" id="photography">Photography</label>
-                        <label for="science-math"><input type="checkbox" id="science-math">Science & Math</label>
-                        <label for="security"><input type="checkbox" id="security">Security</label>
-                        <label for="shopping"><input type="checkbox" id="shopping">Shopping</label>
-                        <label for="social"><input type="checkbox" id="social">Social</label>
-                        <label for="sports-fitness"><input type="checkbox" id="sports-fitness">Sports & Fitness</label>
-                        <label for="test-data"><input type="checkbox" id="test-data">Test Data</label>
-                        <label for="text-analysis"><input type="checkbox" id="text-analysis">Text Analysis</label>
-                        <label for="tracking"><input type="checkbox" id="tracking">Tracking</label>
-                        <label for="transportation"><input type="checkbox" id="transportation">Transportation</label>
-                        <label for="url-shorteners"><input type="checkbox" id="url-shorteners">URL Shorteners</label>
-                        <label for="vehicles"><input type="checkbox" id="vehicles">Vehicle</label>
-                        <label for="video"><input type="checkbox" id="video">Video</label>
-                        <label for="weather"><input type="checkbox" id="weather">Weather</label>
+                        <label for="animals"><input type="checkbox" id="animals"><span class="checkmark"></span>Animals</label>
+                        <label for="anime"><input type="checkbox" id="anime"><span class="checkmark"></span>Anime</label>
+                        <label for="anti-malware"><input type="checkbox" id="anti-malware"><span class="checkmark"></span>Anti-Malware</label>
+                        <label for="art-design"><input type="checkbox" id="art-design"><span class="checkmark"></span>Art & Design</label>
+                        <label for="books"><input type="checkbox" id="books"><span class="checkmark"></span>Books</label>
+                        <label for="business"><input type="checkbox" id="business"><span class="checkmark"></span>Business</label>
+                        <label for="calendar"><input type="checkbox" id="calendar"><span class="checkmark"></span>Calendar</label>
+                        <label for="cloud-storage-file-sharing"><input type="checkbox" id="cloud-storage-file-sharing"><span class="checkmark"></span>Cloud Storage &<br> File Sharing</label>
+                        <label for="continuous-integration"><input type="checkbox" id="continuous-integration"><span class="checkmark"></span>Continuous Integration</label>
+                        <label for="cryptocurrency"><input type="checkbox" id="cryptocurrency"><span class="checkmark"></span>Cryptocurrency</label>
+                        <label for="currency-exchange"><input type="checkbox" id="currency-exchange"><span class="checkmark"></span>Currency Exchange</label>
+                        <label for="data-validation"><input type="checkbox" id="data-validation"><span class="checkmark"></span>Data Validation</label>
+                        <label for="development"><input type="checkbox" id="development"><span class="checkmark"></span>Development</label>
+                        <label for="dictionaries"><input type="checkbox" id="dictionaries"><span class="checkmark"></span>Dictionaries</label>
+                        <label for="documents-productivity"><input type="checkbox" id="documents-productivity"><span class="checkmark"></span>Documents & Productivity</label>
+                        <label for="environment"><input type="checkbox" id="environment"><span class="checkmark"></span>Environment</label>
+                        <label for="events"><input type="checkbox" id="events"><span class="checkmark"></span>Events</label>
+                        <label for="finance"><input type="checkbox" id="finance"><span class="checkmark"></span>Finance</label>
+                        <label for="food-drink"><input type="checkbox" id="food-drink"><span class="checkmark"></span>Food & Drink</label>
+                        <label for="fraud-prevention"><input type="checkbox" id="fraud-prevention"><span class="checkmark"></span>Fraud Prevention</label>
+                        <label for="games-comics"><input type="checkbox" id="games-comics"><span class="checkmark"></span>Games & Comics</label>
+                        <label for="geocoding"><input type="checkbox" id="geocoding"><span class="checkmark"></span>Geocoding</label>
+                        <label for="government"><input type="checkbox" id="government"><span class="checkmark"></span>Government</label>
+                        <label for="health"><input type="checkbox" id="health"><span class="checkmark"></span>Health</label>
+                        <label for="jobs"><input type="checkbox" id="jobs"><span class="checkmark"></span>Jobs</label>
+                        <label for="machine-learning"><input type="checkbox" id="machine-learning"><span class="checkmark"></span>Machine Learning</label>
+                        <label for="music"><input type="checkbox" id="music"><span class="checkmark"></span>Music</label>
+                        <label for="news"><input type="checkbox" id="news"><span class="checkmark"></span>News</label>
+                        <label for="open-data"><input type="checkbox" id="open-data"><span class="checkmark"></span>Open Data</label>
+                        <label for="open-source-projects"><input type="checkbox" id="open-source-projects"><span class="checkmark"></span>Open Source Projects</label>
+                        <label for="personality"><input type="checkbox" id="personality"><span class="checkmark"></span>Personality</label>
+                        <label for="photography"><input type="checkbox" id="photography"><span class="checkmark"></span>Photography</label>
+                        <label for="science-math"><input type="checkbox" id="science-math"><span class="checkmark"></span>Science & Math</label>
+                        <label for="security"><input type="checkbox" id="security"><span class="checkmark"></span>Security</label>
+                        <label for="shopping"><input type="checkbox" id="shopping"><span class="checkmark"></span>Shopping</label>
+                        <label for="social"><input type="checkbox" id="social"><span class="checkmark"></span>Social</label>
+                        <label for="sports-fitness"><input type="checkbox" id="sports-fitness"><span class="checkmark"></span>Sports & Fitness</label>
+                        <label for="test-data"><input type="checkbox" id="test-data"><span class="checkmark"></span>Test Data</label>
+                        <label for="text-analysis"><input type="checkbox" id="text-analysis"><span class="checkmark"></span>Text Analysis</label>
+                        <label for="tracking"><input type="checkbox" id="tracking"><span class="checkmark"></span>Tracking</label>
+                        <label for="transportation"><input type="checkbox" id="transportation"><span class="checkmark"></span>Transportation</label>
+                        <label for="url-shorteners"><input type="checkbox" id="url-shorteners"><span class="checkmark"></span>URL Shorteners</label>
+                        <label for="vehicles"><input type="checkbox" id="vehicles"><span class="checkmark"></span>Vehicle</label>
+                        <label for="video"><input type="checkbox" id="video"><span class="checkmark"></span>Video</label>
+                        <label for="weather"><input type="checkbox" id="weather"><span class="checkmark"></span>Weather</label>
                         </div>
                     </fieldset>
 
@@ -92,22 +92,22 @@
                     <div class="options-flex-wrapper">
                         <fieldset class="auth-options" id="auth-options">
                             <legend>Auth</legend>
-                            <label for="auth-none"><input type="checkbox" id="auth-none">None</label>
-                            <label for="auth-key"><input type="checkbox" id="auth-key">apiKey</label>
-                            <label for="auth-oauth"><input type="checkbox" id="auth-oauth">OAuth</label>
+                            <label for="auth-none"><input type="checkbox" id="auth-none"><span class="checkmark"></span>None</label>
+                            <label for="auth-key"><input type="checkbox" id="auth-key"><span class="checkmark"></span>apiKey</label>
+                            <label for="auth-oauth"><input type="checkbox" id="auth-oauth"><span class="checkmark"></span>OAuth</label>
                         </fieldset>
 
                         <fieldset class="cors-options" id="cors-options">
                                 <legend>CORS</legend>
-                                <label for="cors-yes"><input type="checkbox" id="cors-yes">Yes</label>
-                                <label for="cors-no"><input type="checkbox" id="cors-no">No</label>
-                                <label for="cors-unknown"><input type="checkbox" id="cors-unknown">Unknown</label>
+                                <label for="cors-yes"><input type="checkbox" id="cors-yes"><span class="checkmark"></span>Yes</label>
+                                <label for="cors-no"><input type="checkbox" id="cors-no"><span class="checkmark"></span>No</label>
+                                <label for="cors-unknown"><input type="checkbox" id="cors-unknown"><span class="checkmark"></span>Unknown</label>
                         </fieldset>
 
                         <fieldset class="https-options" id="https-options">
                                 <legend>HTTPS</legend>
-                                <label for="https-yes"><input type="checkbox" id="https-yes">Yes</label>
-                                <label for="https-no"><input type="checkbox" id="https-no">No</label>
+                                <label for="https-yes"><input type="checkbox" id="https-yes"><span class="checkmark"></span>Yes</label>
+                                <label for="https-no"><input type="checkbox" id="https-no"><span class="checkmark"></span>No</label>
                         </fieldset>
                     </div>
                 </form>
@@ -125,7 +125,24 @@
 
             </section>
 
+            <!-- <section class="sidebar-area">
+                <section class="sidebar favorites-sidebar">
+                    <h3>Favorites</h3>
+                    <aside>(APIs will show up here as you add them.)</aside>
+                    <ul class="favorites-list"></ul>
+                </section>
+
+                <section class="sidebar random-sidebar">
+                    <h3>Randomizer</h3>
+                    <aside>Can't think of anything? Try combining these:</aside>
+                    <ul class="random-list"></ul>
+                    <button class="reroll">Re-roll</button>
+                </section>
+            </section> -->
+
         </section>
+
+
 
     </main>
 
