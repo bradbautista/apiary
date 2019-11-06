@@ -64,17 +64,12 @@ function normalizeData(responseJson) {
         }
     );
 
-    console.log(data.length);
-
-    // Pass our data to displayResults and updateCount
+    // Pass our data around
     displayResults(data);
     updateCount(data);
+    getRandoms(data);
 
 };
-
-function updateCount(data) {
-    $('.current-count').text(data.length);
-}
 
 function getCategories() {
  
@@ -143,15 +138,11 @@ function generateResults(data, i) {
     )
 };
 
-// <button class="fav"><i class="fas fa-heart"></i> Add to favorites</button>
-
-
 function dontGiveUp() {
     $('.results-list').append(
         `<li class="nomatches">No matches for that combination of options. :( Try different options!</li>`
     )
 };
-
 
 function displayResults(data) {
 
@@ -160,11 +151,11 @@ function displayResults(data) {
     // If there is a click on any input on the form
     $('.api-filters').on('click', 'input', (function(event) {
 
-        // First check to see how many checkboxes are checked, because if
-        // that number is zero, it probably means someone checked checkboxes
-        // and unchecked them all. Due to the sorting rules, this will 
-        // return all APIs, so instead display a blank results area
-
+        // First check to see how many checkboxes are checked, 
+        // because if that number is zero, it probably means 
+        // someone checked checkboxes and unchecked them all. 
+        // Due to the sorting rules, this will return all APIs, 
+        // so instead display a blank results area
         if (document.querySelectorAll('input:checked').length === 0) {
             $('.results-list').empty();
         } else {
@@ -211,6 +202,44 @@ function displayResults(data) {
 };
 
 
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+};
+
+function getRandoms(data) {
+
+    // We could hit the API's random endpoint, but to limit calls to it
+    // and because we already have a formatted dataset and a shuffling
+    // tool, we're just going to copy the dataset and shuffle it
+    const dataCopy = data.slice();
+    generateRandoms(dataCopy);
+    reRoll(dataCopy);
+};
+
+function generateRandoms(dataCopy) {
+    
+    let randomizedData = shuffle(dataCopy);
+    
+    $('.random-prompt').html(
+        `<p class="random-prompt">What if you combined the <a href="${randomizedData[0].Link}" target="_blank">${randomizedData[0].API}</a> API and the <a href="${randomizedData[1].Link}" target="_blank">${randomizedData[1].API}</a> API?</p>`    
+    )  
+}
+
+function reRoll(dataCopy) {
+    $('.random-sidebar').on('click', '.fa-random', function(event) {
+        generateRandoms(dataCopy);
+    });
+}
+
+function updateCount(data) {
+    $('.current-count').text(data.length);
+}
+
+
 // Clear checkboxes on page reload
 function clearInputs() {
     $('input:checkbox').prop('checked', false);
@@ -219,7 +248,7 @@ function clearInputs() {
 function exploreAPIs() {
     getData();
     showMenu();
-    clearInputs();    
+    clearInputs(); 
 }
 
 $(exploreAPIs);
