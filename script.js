@@ -1,6 +1,5 @@
 'use strict';
 
-// A container for our raw JSON 
 let rawData = [];
 
 // Enable menu behavior
@@ -18,8 +17,6 @@ function showMenu() {
     });
 };
 
-// Retrieve and return the data, then pass it to the 
-// normalizeData function so we can neaten it up
 function getData() {
 
     const endpoint = 'https://api.publicapis.org/entries'
@@ -64,7 +61,6 @@ function normalizeData(responseJson) {
         }
     );
 
-    // Pass our data around
     displayResults(data);
     updateCount(data);
     getRandoms(data);
@@ -148,7 +144,6 @@ function displayResults(data) {
 
     $('#js-error-message').empty();
 
-    // If there is a click on any input on the form
     $('.api-filters').on('click', 'input', (function(event) {
 
         // First check to see how many checkboxes are checked, 
@@ -172,7 +167,6 @@ function displayResults(data) {
             // Loop through the data 
             for (let i = 0; i < data.length; i++){
             
-                // And if 
                 if (
                 
                 // There are results for our combination of categories

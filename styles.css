@@ -95,14 +95,12 @@ fieldset {
     display: none;
     padding-left: 30px;
     padding-bottom: 25px;
-    /* padding-right: 30px; */
 }
 
 fieldset input {
     margin-right: 4px;
     margin-bottom: 2px;
     line-height: 1.5;
-    /* outline: 1.5px solid #ffb345; */
 }
 
 ul {
@@ -112,15 +110,11 @@ ul {
 
 li {
     list-style-type: none;
-    /* -webkit-column-break-inside: avoid; */
-    /* page-break-inside: avoid;
-    break-inside: avoid; */
 }
 
 hr {
     border: none;
     border-radius: 0px;
-    /* border-top: 2px dotted; */
     height: 2px;
     width: 90%;
     background-color: #f1a80d;
@@ -155,6 +149,7 @@ input {
     display: flex;
     display: none;
     flex-direction: column;
+    column-fill: balance-all;
     justify-items: flex-start;
     margin-top: -25px;
     padding-top: 45px;
@@ -176,6 +171,7 @@ label {
     display: flex;
     align-items: center;
     margin-bottom: 8px;
+    height: 22px;
 }
 
 .checkmark {
@@ -213,10 +209,7 @@ input:checked ~ .checkmark:after {
 }
 
 .options-flex-wrapper {
-    /* display: flex; */
     display: none;
-    /* flex-direction: row; */
-    /* align-items: flex-start; */
     margin-top: -25px;
     padding-top: 45px;
     border: 2px solid #ffb345;
@@ -274,6 +267,7 @@ input:checked ~ .checkmark:after {
 
 .nomatches {
     font-style: italic;
+    margin-bottom: 30px;
 }
 
 .sidebar-area {
@@ -320,7 +314,7 @@ input:checked ~ .checkmark:after {
 .random-prompt {
     padding-left: 15px;
     padding-right: 20px;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 22px;
     text-align: left;
     margin-bottom: 25px;
@@ -371,13 +365,13 @@ input:checked ~ .checkmark:after {
     }
 
     .chrome-wrapper {
-        columns: 3;
+        columns: 2;
     }
 
     .options-flex-wrapper {
         margin-top: -40px;
         padding-top: 50px;
-        columns: 3;
+        /* columns: 3; */
     }
 
     .options-flex-wrapper fieldset {
@@ -410,7 +404,7 @@ input:checked ~ .checkmark:after {
     }
 
     .chrome-wrapper {
-        columns: 4;
+        columns: 3;
         -webkit-columns: 3;
     }
 
@@ -423,7 +417,7 @@ input:checked ~ .checkmark:after {
         margin-top: -40px;
         padding-top: 60px;
         columns: 6;      
-        -webkit-columns: 2;
+        -webkit-columns: 1;
     }
 
     .sidebar-area {
