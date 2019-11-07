@@ -11,4 +11,4 @@
 **Apiary has one for you!** The Randomizer located below the sorting options will give you two random APIs to think about combining. Sometimes, it's funny! Hit the shuffle button to get new APIs.
 
 ## About
-Apiary is a student project created to help other students — or anyone — easily find public APIs and save them some of the trouble of combing through long lists while keeping track of details like auth schemes and CORS support. It utilizes HTML, CSS, JavaScript, jQuery and this API by Dave Machado: https://github.com/davemachado/public-api. It looks best in Firefox. It likes you and hopes you succeed.
+Apiary is a student project created to help other students — or anyone — easily find public APIs and save them some of the trouble of combing through long lists while keeping track of details like auth schemes and CORS support. It utilizes HTML, CSS, JavaScript, jQuery, https://www.heropatterns.com/ and this API by Dave Machado: https://github.com/davemachado/public-api. It looks best in Firefox. It likes you and hopes you succeed.
